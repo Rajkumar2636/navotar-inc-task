@@ -1,0 +1,30 @@
+buildscript {
+repositories {
+    jcenter()
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:2.0.7"
+    }
+}
+}
+
+plugins {
+    id "java"
+    id "idea"
+}
+
+apply plugin: "net.serenity-bdd.aggregator"
+
+repositories.addAll(buildscript.repositories)
+
+dependencies {
+    compile "net.serenity-bdd:serenity-core:2.0.7"
+    compile "net.serenity-bdd:serenity-cucumber:1.9.18"
+    testCompile 'junit:junit:4.12'
+    testCompile 'net.serenity-bdd:serenity-junit:1.2.3-rc.9' 
+    testCompile 'net.serenity-bdd:serenity-screenplay:1.2.3-rc.9'
+    testCompile 'net.serenity-bdd:serenity-rest-assured:1.2.3-rc.9'
+    testCompile 'net.serenity-bdd:serenity-report-resources:1.2.3-rc.9'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.2'
+    
+}
+
