@@ -28,3 +28,17 @@ dependencies {
     
 }
 
+test{
+    systemProperty "cucumber.options", System.getProperty("cucumber.options")
+    
+    List<String> runners = file('src/test/java/com/navotar/runner').listFiles()
+            .collect { it.name }
+            .findAll { it =~ 'Runner' }
+            .collect { it.take(it.lastIndexOf('.')) } // trim '.java' to use file names in gradle test filter
+
+    ignoreFailures = true
+    testLogging.showStandardStreams = true
+    testLogging.exceptionFormat = 'full'
+} 
+gradle.startParameter.continueOnFailure = true
+

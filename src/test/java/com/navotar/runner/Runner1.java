@@ -8,8 +8,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 @CucumberOptions(monochrome=true,
 features="resources/features",
 glue="com.navotar.stepdef",
-strict=true,
-tags="@negativescenario") 
+strict=true)
 public class Runner1 {
 
 }
